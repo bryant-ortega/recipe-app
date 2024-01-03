@@ -7,7 +7,7 @@ class Recipe(models.Model):
   ingredients= models.CharField(max_length=350, help_text='Ingredients must be separated by commas.')
   description= models.TextField()
   cooking_time= models.FloatField(help_text='In minutes')
-  pic = models.ImageField(upload_to='customers', default='no_picture.jpg')
+  pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
 
   
   # calculate difficulty of recipe using cooking time and number of ingredients
