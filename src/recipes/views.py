@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView  # to display lists
+from django.views.generic import ListView, DetailView  # to display lists
 from .models import Recipe  # to access Recipe model
 
 # Create your views here.

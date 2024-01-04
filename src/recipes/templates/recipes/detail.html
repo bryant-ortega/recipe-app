@@ -1,13 +1,19 @@
-<h2>Details: {{object.name}}</h2>
+{% load static %}
 
-<b>Title: </b> {{object.name}} <br />
+<!DOCTYPE html>
 
-<b>Author: </b> {{object.author_name}} <br />
+<h2>Details: {{object.recipe_name}}</h2>
 
-<b>Genre: </b> {{object.genre}} <br />
+<img src="{{object.pic.url}}" width="300" height="300" br />
 
-<b>Book Type: </b> {{object.book_type}} <br />
+<div>
+<b>Recipe: </b> {{object.recipe_name}} <br />
 
-<b>Price: </b> {{object.price}} <br />
+<b>Ingredients: </b> {{object.ingredients}} <br />
 
-<img src="{{object.pic.url}}" width="200" height="300" />
+<b>Description: </b> {{object.description}} <br />
+
+<b>Cooking Time: </b> {{object.cooking_time}} minutes<br />
+</div>
+
+</html>

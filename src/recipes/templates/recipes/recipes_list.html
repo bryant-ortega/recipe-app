@@ -16,8 +16,12 @@
     {% for object in object_list %} {% comment%} now go through the list
     element-by-element {% endcomment%}
     <tr>
-        <td>{{object.recipe_name}}</td>
-        {% comment%} print the name of book {% endcomment%}
+        <td>
+            <a href="{{object.get_absolute_url}}">
+                {% comment%} add links to recipe names {% endcomment%}
+                {{object.recipe_name}}
+            </a>
+        </td>
         <td><img src="{{object.pic.url}}" width="150" height="200" /></td>
         {% comment%} display the picture of recipe {% endcomment%}
     </tr>
