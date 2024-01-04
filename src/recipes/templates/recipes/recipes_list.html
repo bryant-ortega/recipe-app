@@ -1,31 +1,25 @@
-
 <!DOCTYPE html>
-<h1>Recipes' list</h1>
-{% comment%} HTML tag for heading {% endcomment%}
+<html>
+    <head>
+        <title>Recipes List</title>
+    </head>
+    <body>
+        <h1>Recipes' List</h1>
+        <a href="/" class="back-link">Back to Home</a><br /><br />
 
-<table border="1" cellpadding="5" cellspacing="5">
-    {% comment%} start of table {% endcomment%}
-    <tr>
-        {% comment%} the
-    </tr>
-    <tr>
-        tag adds a new row {% endcomment%}
-        <td>Recipes' Titles</td>
-        {% comment%} the
-        <td>tag adds a column {% endcomment%}</td>
-        <td>Recipes' Images</td>
-    </tr>
-    {% for object in object_list %} {% comment%} now go through the list
-    element-by-element {% endcomment%}
-    <tr>
-        <td>
-            <a href="{{object.get_absolute_url}}">
-                {% comment%} add links to recipe names {% endcomment%}
-                {{object.recipe_name}}
-            </a>
-        </td>
-        <td><img src="{{object.pic.url}}" width="150" height="200" /></td>
-        {% comment%} display the picture of recipe {% endcomment%}
-    </tr>
-    {% endfor %}
-</table>
+        <table border="1" cellpadding="5" cellspacing="5">
+            <tr>
+                <th>Recipes' Titles</th>
+                <th>Recipes' Images</th>
+            </tr>
+            {% for object in object_list %}
+            <tr>
+                <td>{{ object.recipe_name }}</td>
+                <td>
+                    <img src="{{ object.pic.url }}" width="300" height="200" />
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
