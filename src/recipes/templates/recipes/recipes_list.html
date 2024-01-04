@@ -14,7 +14,11 @@
             </tr>
             {% for object in object_list %}
             <tr>
-                <td>{{ object.recipe_name }}</td>
+                <td>
+                    <a href="{% url 'recipes:detail' pk=object.pk %}"
+                        >{{ object.recipe_name }}</a
+                    >
+                </td>
                 <td>
                     <img src="{{ object.pic.url }}" width="300" height="200" />
                 </td>
