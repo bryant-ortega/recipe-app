@@ -28,7 +28,13 @@ class RecipeModelTest(TestCase):
     recipe_name_max_length = recipe._meta.get_field('recipe_name').max_length
     self.assertEqual(recipe_name_max_length, 30)
 
-  def test_difficulty_calcuation(self):
+  def test_difficulty_calculation(self):
     # Testing the calculate_difficulty function
     recipe = Recipe.objects.get(id=1)
     self.assertEqual(recipe.calculate_difficulty(), 'Easy')
+
+  def test_get_absolute_url(self):
+       recipe = Recipe.objects.get(id=1)
+       #get_absolute_url() should take you to the detail page of recipe #1
+       #and load the URL /recipes/1
+       self.assertEqual(recipe.get_absolute_url(), '/recipes/1')
