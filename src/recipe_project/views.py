@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect  
 #Django authentication libraries           
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 #Django Form for authentication
 from django.contrib.auth.forms import AuthenticationForm    
+
+
 
 #define a function view called login_view that takes a request from user
 def login_view(request):
@@ -28,7 +30,7 @@ def login_view(request):
            if user is not None:                    #if user is authenticated
           #then use pre-defined Django function to login
                login(request, user)                
-               return redirect('TBD') #& send the user to desired page
+               return redirect('recipes:recipes_list') #& send the user to desired page
        else:                                               #in case of error
            error_message ='ooops.. something went wrong'   #print error message
 
@@ -39,3 +41,8 @@ def login_view(request):
    }
    #load the login page using "context" information
    return render(request, 'auth/login.html', context)
+
+#define a function view called logout_view that takes a request from user
+def logout_view(request):
+    logout(request)     #the use pre-defined Django function to logout
+    return render(request, 'auth/logout.html')  # Render the logout.html template
