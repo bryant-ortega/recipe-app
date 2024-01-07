@@ -1,20 +1,25 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Recipes List</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
     </head>
     <body>
         <h1>Recipes' List</h1>
-        <a
-            href="{% url 'logout' %}"
-            style="margin-right: 180px; margin-left: 10px"
-        >
-            Logout
-        </a>
-        <a href="{% url 'recipes:recipe_search' %}"> Search Recipes </a
-        ><br /><br />
 
-        <table border="1" cellpadding="5" cellspacing="5">
+        <div class="links-container">
+            <a href="{% url 'recipes:recipe_search' %}">Search Recipes</a>
+            <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+        </div>
+
+        <table
+            class="centered-table"
+            border="1"
+            cellpadding="5"
+            cellspacing="5"
+        >
             <tr>
                 <th>Recipes' Titles</th>
                 <th>Recipes' Images</th>
