@@ -4,3 +4,18 @@
 <hr />
 
 <a href="{%url 'logout' %}"> Logout </a><br /><br />
+
+<br />
+
+<form action="" method="POST">
+    {% csrf_token %} {{form}}
+    <button type="submit">search</button>
+</form>
+<br />
+
+{% if recipes_df %} {{recipes_df|safe}}
+<br />
+<img src="data:image/png;base64, {{chart|safe}}" />
+{% else %}
+<h3>no data</h3>
+{% endif %}
