@@ -30,18 +30,14 @@ def get_graph():
 #chart_type: user input o type of chart,
 #data: pandas dataframe
 def get_chart(chart_type, data, **kwargs):
-  #switch plot backend to AGG (Anti-Grain Geometry) - to write to file
-  #AGG is preferred solution to write PNG files
   plt.switch_backend('AGG')
-
-  #specify figure size
-  fig=plt.figure(figsize=(6,3))
+  fig = plt.figure(figsize=(10, 4))  # Adjust the figure size as needed
 
   if chart_type == '#1':
-    # Bar chart of cooking times
-    plt.bar(data['recipe_name'], data['category'])
+    # Use 'chart_recipe_name' for the x-axis labels
+    plt.bar(data['chart_recipe_name'], data['cooking_time'])
     plt.xlabel('Recipe Name')
-    plt.ylabel('Category')
+    plt.ylabel('Cooking Time (minutes)')
     plt.xticks(rotation=45, ha='right')
 
   elif chart_type == '#2':

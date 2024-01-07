@@ -5,7 +5,14 @@
     </head>
     <body>
         <h1>Recipes' List</h1>
-        <a href="{%url 'logout' %}"> Logout </a><br /><br />
+        <a
+            href="{% url 'logout' %}"
+            style="margin-right: 180px; margin-left: 10px"
+        >
+            Logout
+        </a>
+        <a href="{% url 'recipes:recipe_search' %}"> Search Recipes </a
+        ><br /><br />
 
         <table border="1" cellpadding="5" cellspacing="5">
             <tr>

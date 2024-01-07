@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <!-- Opening <html> tag -->
@@ -21,6 +20,16 @@
             <b>Cooking Time: </b> {{ object.cooking_time }} minutes<br />
             <!-- Corrected <br> tag -->
         </div>
+        <br /><br />
+        <a
+            href="{% url 'logout' %}"
+            style="margin-right: 180px; margin-left: 10px"
+        >
+            Logout
+        </a>
+        <a href="{% url 'recipes:recipe_search' %}" style="margin-right: 180px">
+            Search Recipes
+        </a>
+        <a href="{% url 'recipes:recipes_list' %}"> View All </a><br /><br />
     </body>
 </html>
-<!-- Closing </html> tag -->

@@ -1,7 +1,8 @@
 from django.test import TestCase
-from .models import Recipe      #to access Recipe model
+from .models import Recipe      
+from .forms import RecipeSearchForm  
 
-# Create your tests here.
+
 class RecipeModelTest(TestCase):
 
   def setUpTestData():
@@ -38,3 +39,26 @@ class RecipeModelTest(TestCase):
        #get_absolute_url() should take you to the detail page of recipe #1
        #and load the URL /recipes/1
        self.assertEqual(recipe.get_absolute_url(), '/recipes/1')
+
+
+class RecipeSearchFormTest(TestCase):
+  def test_valid_form(self):
+        form_data = {
+            'recipe_name': 'Sample Recipe',  # Optional
+            'category': 'DESSERT',           # Optional
+            'chart_type': '#1'               # Required
+        }
+        form = RecipeSearchForm(data=form_data)
+        self.assertTrue(form.is_valid(), form.errors)
+
+
+  def test_partial_form(self):
+        # Providing valid data only for the required chart_type field
+        # Leaving recipe_name and category fields empty
+        form_data = {
+            'recipe_name': '',          # Optional and left blank
+            'category': '',             # Optional and left blank (or could use 'Choose')
+            'chart_type': '#1'          # Required and provided
+        }
+        form = RecipeSearchForm(data=form_data)
+        self.assertTrue(form.is_valid(), form.errors)
